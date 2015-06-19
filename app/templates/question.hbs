@@ -1,0 +1,46 @@
+{{#if isEditing}}
+
+  <form>
+    <div class="form-group">
+      <label for="user">User Name:</label>
+      {{input id="user" class="form-control" value=user}}
+    </div>
+
+    <div class="form-group">
+      <label for="title">Title:</label>
+      {{input id="title" class="form-control" value=title}}
+    </div>
+
+    <div class="form-group">
+      <label for="text">Question Text:</label>
+      {{textarea value=text id="text" class="form-control" rows="5"}}
+    </div>
+
+    <button class="btn btn-info" {{action "updateQuestion"}}>Update</button>
+  </form>
+
+{{else}}
+  <h1>Question Detail:</h1>
+  <h2>{{model.title}}</h2>
+  <h4>Asked by: {{model.user}}</h4>
+  <p>{{model.text}}</p>
+
+  <button class="btn btn-info" {{action "editQuestion"}}>Edit</button>
+  <button class="btn btn-danger" {{action "deleteQuestion"}}>Delete</button>
+
+{{/if}}
+
+{{#if isAnswering}}
+
+{{else}}
+
+<h3>Comments:</h3>
+  <ul>
+    {{#each answer in model.answers}}
+      <li><span STYLE='font-weight: bold'>{{answer.user}}</span>: {{answer.text}} <span class="glyphicon glyphicon-remove-sign red" {{action "deleteAnswer" answer}}></span></li>
+    {{/each}}
+  </ul>
+  <button class='btn btn-success' {{action 'addAnswer'}}>Answer!</button>
+{{/if}}
+
+{{outlet}}
