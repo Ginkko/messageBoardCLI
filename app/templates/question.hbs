@@ -37,7 +37,7 @@
 <h3>Comments:</h3>
   <ul>
     {{#each answer in model.answers}}
-      <li><span STYLE='font-weight: bold'>{{answer.user}}</span>: {{answer.text}} <span class="glyphicon glyphicon-remove-sign red" {{action "deleteAnswer" answer}}></span></li>
+      <li><span STYLE='font-weight: bold'>{{answer.user}}</span>: {{answer.text}} <span class="red bold" {{action "deleteAnswer" answer}}>X</span></li>
     {{/each}}
   </ul>
   <button class='btn btn-success' {{action 'addAnswer'}}>Answer!</button>
