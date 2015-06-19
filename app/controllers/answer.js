@@ -17,7 +17,8 @@ export default Ember.Controller.extend({
       question.get('answers').pushObject(newAnswer);
       question.save();
       this.get('controllers.question').set('isAnswering', false);
-      this.transitionToRoute('question', question);
+      debugger;
+      this.transitionToRoute('question', question.id);
     }
 
   }

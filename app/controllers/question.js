@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
        question.save();
        answer.deleteRecord();
        answer.save();
-       this.transitionToRoute('question', this.get('id'));
+       this.transitionToRoute('question', question.id);
      }
    },
 

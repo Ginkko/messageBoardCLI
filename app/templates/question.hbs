@@ -38,9 +38,12 @@
   <ul>
     {{#each answer in model.answers}}
       <li><span STYLE='font-weight: bold'>{{answer.user}}</span>: {{answer.text}} <span class="red bold" {{action "deleteAnswer" answer}}>X</span></li>
+      <!-- On adding a new answer, the template will output a copy of the added answer in addition to the pre-existing answers. Resolves on refresh, not sure why this is happening? -->
     {{/each}}
   </ul>
   <button class='btn btn-success' {{action 'addAnswer'}}>Answer!</button>
 {{/if}}
+
+
 
 {{outlet}}
